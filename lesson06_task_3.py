@@ -19,12 +19,10 @@ try:
 
     
     images = browser.find_elements(By.TAG_NAME, "img")
-    if len(images) >= 3:
-        third_image_src = images[2].get_attribute("src")
-        print("SRC третьей картинки:", third_image_src)
-    else:
-        print("Третья картинка не найдена")
+    assert len(images) == 4, f"Загружено только {len(images)} картинок"
+    third_image_src = images[2].get_attribute("src")
 
 finally:
     
     browser.quit()
+
